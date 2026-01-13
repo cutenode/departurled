@@ -88,10 +88,6 @@ function stopTimeUpdateToDataBundle({ stopId, stopName, routeId, arrivalTime, de
 	}
 }
 
-function getWalkTime () {
-	// figure out walk time to station to filter out any trains that are too close
-}
-
 function convertUnixTimestampToDate(unix_timestamp) {
 	return new Date(Number(unix_timestamp) * 1000);
 }
