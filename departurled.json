@@ -3,5 +3,6 @@
 		"latitude": 40.6913957,
 		"longitude": -73.9853902
 	},
-	"bufferMinutes": "2"
+	"bufferMinutes": 2,
+	"walkingSpeed": 80.47
 }

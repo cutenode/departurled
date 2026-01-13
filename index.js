@@ -50,7 +50,7 @@ async function buildRadius (lat, lon) {
 			const distance = calculateRadius(locationLat, locationLon, stopLat, stopLon)
 
 			if (distance <= 1000) {
-				stopsInRange.push(stop)
+				stopsInRange.push({ ...stop, distance: distance })
 			}
 		}
 	}
@@ -64,7 +64,7 @@ function getConfigData (configPath) {
 	return JSON.parse(fileContents)
 }
 
-const data = getConfigData('./departurled.json')
+const configData = getConfigData('./departurled.json')
 
 const MTA_TRAIN_URLS = [
 	'https://api-endpoint.mta.info/Dataservice/mtagtfsfeeds/nyct%2Fgtfs-ace',
@@ -141,11 +141,28 @@ async function fetchTrainData(trainUrls, filteredStops) {
 
 
 async function logger() {
-	const stopsInRange = await buildRadius(data.location.latitude, data.location.longitude)
+	const stopsInRange = await buildRadius(configData.location.latitude, configData.location.longitude)
 	const filteredStopTimeUpdates = await fetchTrainData(MTA_TRAIN_URLS, stopsInRange)
-	console.log(JSON.stringify(filteredStopTimeUpdates, null, 2))
+	const stopTimeUpdatesGroupedByStation = Object.groupBy(filteredStopTimeUpdates, (stopTimeUpdate) => {
+		return stopTimeUpdate.stopName
+	})
+
+	// Add distance to grouped station
+	Object.keys(stopTimeUpdatesGroupedByStation).forEach(function(stationName, index) {
+		stopTimeUpdatesGroupedByStation[stationName] = {
+			stopTimeUpdates: stopTimeUpdatesGroupedByStation[stationName],
+			minutesTo: stopsInRange.find((stop) => stop.stop_name === stationName).distance / configData.walkingSpeed
+		};
+	});
+
+	// Current time + buffer + minutesTo
+
+	console.log(JSON.stringify(stopTimeUpdatesGroupedByStation))
 }
 
 logger()
 
-// console.log(getConfigData('./departurled.json'))
+// Google Maps walking speed
+// 3 mi/hr ~= 80.47 m/min
+
+// { stationName: { distance: ###, lines: { lineName: { uptown: [{}], downtown: [...] } } }}
