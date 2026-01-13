@@ -41,11 +41,10 @@ function calculateRadius(lat1, lon1, lat2, lon2) {
 	const d = R * c; // in metres
 	return d
 }
+
 // get radius from current location
 async function buildRadius (lat, lon) {
 	const stops = await getStops()
-	// should probably default to 0.5miles
-	// lat and long can't follow basic trig
 	const locationLat = Number(lat)
 	const locationLon = Number(lon)
 
@@ -110,20 +109,17 @@ async function fetchTrainData(trainUrls, filteredStops) {
 				
 				// Use the FeedMessage type from your compiled bundle
 				const FeedMessage = root.transit_realtime.FeedMessage;
-				const message = FeedMessage.decode(new Uint8Array(buffer));
+				const message = FeedMessage.decode(new Uint8Array(buffer)).entity;
 
-			  for (const entity in message.entity) {
-					if (message.entity[entity].tripUpdate) {
-						const tripId = message.entity[entity].tripUpdate.trip.tripId;
-						const routeId = message.entity[entity].tripUpdate.trip.routeId;
+			  for (const entity in message) {
+					if (message[entity].tripUpdate) {
+						const tripId = message[entity].tripUpdate.trip.tripId;
+						const routeId = message[entity].tripUpdate.trip.routeId;
 
-						message.entity[entity].tripUpdate.stopTimeUpdate.forEach((stopTimeUpdate) => {
+						message[entity].tripUpdate.stopTimeUpdate.forEach((stopTimeUpdate) => {
 							const stop = filteredStops.find((filteredStop) => stopTimeUpdate.stopId.includes(filteredStop.stop_id))
-							if (
-								filteredStops.some((filteredStop) => stopTimeUpdate.stopId.includes(filteredStop.stop_id))
-							) {
-								const result = stopTimeUpdateToDataBundle(
-									{
+							if (filteredStops.some((filteredStop) => stopTimeUpdate.stopId.includes(filteredStop.stop_id))) {
+								const input = {
 										routeId: routeId,
 										stopId: stopTimeUpdate.stopId,
 										stopName: stop.stop_name,
@@ -131,8 +127,9 @@ async function fetchTrainData(trainUrls, filteredStops) {
 										departureTime: stopTimeUpdate.departure.time,
 										reachable: convertUnixTimestampToDate(stopTimeUpdate.arrival.time) >= new Date(new Date().getTime() + (configData.bufferMinutes + stop.minutesTo) * 60000)
 									}
-								)
-								filteredStopTimeUpdates.push(result)
+								
+								const output = stopTimeUpdateToDataBundle(input)
+								filteredStopTimeUpdates.push(output)
 							}							
 						});
 					}
