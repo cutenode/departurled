@@ -1,69 +1,8 @@
-const csv = require('async-csv')
-const { readFile } = require('node:fs/promises')
-const { readFileSync } = require('node:fs')
-const { resolve } = require('node:path');
-const root = require("./sources/proto_bundle.js");
-
-function getConfigData (configPath) {
-	const resolvedConfigPath = resolve(configPath)
-	const fileContents = readFileSync(resolvedConfigPath).toString()
-	return JSON.parse(fileContents)
-}
+const buildRadius = require('./src/buildRadius.js')
+const getConfigData = require('./src/getConfigData')
+const protoBundle = require('./src/proto_bundle.js')
 
 const configData = getConfigData('./departurled.json')
-
-async function getStops () {
-	const data = await readFile('./sources/stops.txt', 'utf-8')
-	const stops = await csv.parse(data, { columns: true })
-	return stops
-}
-
-// internal util to test getStops
-// async function stopsLogger () {
-// 	const data = await getStops()
-// 	console.log(data)
-// }
-
-// stopsLogger()
-
-function calculateRadius(lat1, lon1, lat2, lon2) {
-	const R = 6371e3; // metres
-	const φ1 = lat1 * Math.PI/180; // φ, λ in radians
-	const φ2 = lat2 * Math.PI/180;
-	const Δφ = (lat2-lat1) * Math.PI/180;
-	const Δλ = (lon2-lon1) * Math.PI/180;
-
-	const a = Math.sin(Δφ/2) * Math.sin(Δφ/2) +
-						Math.cos(φ1) * Math.cos(φ2) *
-						Math.sin(Δλ/2) * Math.sin(Δλ/2);
-	const c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1-a));
-
-	const d = R * c; // in metres
-	return d
-}
-
-// get radius from current location
-async function buildRadius (lat, lon) {
-	const stops = await getStops()
-	const locationLat = Number(lat)
-	const locationLon = Number(lon)
-
-	const stopsInRange = []
-
-	for (const stop of stops) {
-		if(stop.parent_station === '') {
-			const stopLat = Number(stop.stop_lat)
-			const stopLon = Number(stop.stop_lon)
-			const distance = calculateRadius(locationLat, locationLon, stopLat, stopLon)
-
-			if (distance <= 1000) {
-				stopsInRange.push({ ...stop, distance: distance, minutesTo: distance / configData.walkingSpeed })
-			}
-		}
-	}
-
-	return stopsInRange
-}
 
 const MTA_TRAIN_URLS = [
 	'https://api-endpoint.mta.info/Dataservice/mtagtfsfeeds/nyct%2Fgtfs-ace',
@@ -104,7 +43,7 @@ async function fetchTrainData(trainUrls, filteredStops) {
 				const buffer = await response.arrayBuffer();
 				
 				// Use the FeedMessage type from your compiled bundle
-				const FeedMessage = root.transit_realtime.FeedMessage;
+				const FeedMessage = protoBundle.transit_realtime.FeedMessage;
 				const message = FeedMessage.decode(new Uint8Array(buffer)).entity;
 
 			  for (const entity in message) {
@@ -139,7 +78,7 @@ async function fetchTrainData(trainUrls, filteredStops) {
 
 
 async function logger() {
-	const stopsInRange = await buildRadius(configData.location.latitude, configData.location.longitude)
+	const stopsInRange = await buildRadius(configData)
 	const filteredStopTimeUpdates = await fetchTrainData(MTA_TRAIN_URLS, stopsInRange)
 	const stopTimeUpdatesGroupedByStation = Object.groupBy(filteredStopTimeUpdates, (stopTimeUpdate) => {
 		return stopTimeUpdate.stopName
