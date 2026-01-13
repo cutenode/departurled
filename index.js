@@ -76,14 +76,19 @@ const MTA_TRAIN_URLS = [
 	'https://api-endpoint.mta.info/Dataservice/mtagtfsfeeds/nyct%2Fgtfs-l'
 ]
 
-function stopTimeUpdateToDataBundle({ stopId, routeId, arrivalTime, departureTime }) {
+function stopTimeUpdateToDataBundle({ stopId, stopName, routeId, arrivalTime, departureTime }) {
 	return {
 		stopId: stopId,
+		stopName: stopName,
 		routeId: routeId,
 		arrivalTime: convertUnixTimestampToDate(arrivalTime),
 		departureTime: convertUnixTimestampToDate(departureTime),
 		direction: stopId[stopId.length - 1].includes('S') ? 'downtown' : 'uptown'
 	}
+}
+
+function getWalkTime () {
+	// figure out walk time to station to filter out any trains that are too close
 }
 
 function convertUnixTimestampToDate(unix_timestamp) {
@@ -93,8 +98,8 @@ function convertUnixTimestampToDate(unix_timestamp) {
 async function fetchTrainData(trainUrls, filteredStops) {
 		try {
 			const filteredStopTimeUpdates = []
-			trainUrls.forEach(async (trainUrl) => {
-				const response = await fetch(trainUrl);
+			for (const trainUrl in trainUrls) {
+				const response = await fetch(trainUrls[trainUrl]);
 
 				if (!response.ok) {
 						throw new Error(`HTTP error! status: ${response.status}`);
@@ -106,37 +111,39 @@ async function fetchTrainData(trainUrls, filteredStops) {
 				const FeedMessage = root.transit_realtime.FeedMessage;
 				const message = FeedMessage.decode(new Uint8Array(buffer));
 
-			  message.entity.forEach((entity) => {
-					if (entity.tripUpdate) {
-						const tripId = entity.tripUpdate.trip.tripId;
-						const routeId = entity.tripUpdate.trip.routeId;
+			  for (const entity in message.entity) {
+					if (message.entity[entity].tripUpdate) {
+						const tripId = message.entity[entity].tripUpdate.trip.tripId;
+						const routeId = message.entity[entity].tripUpdate.trip.routeId;
 
-						entity.tripUpdate.stopTimeUpdate.forEach((stopTimeUpdate) => {
+						message.entity[entity].tripUpdate.stopTimeUpdate.forEach((stopTimeUpdate) => {
 							if (filteredStops.some((filteredStop) => stopTimeUpdate.stopId.includes(filteredStop.stop_id))) {
-								filteredStopTimeUpdates.push(stopTimeUpdateToDataBundle(
+								const result = stopTimeUpdateToDataBundle(
 									{
 										routeId: routeId,
 										stopId: stopTimeUpdate.stopId,
+										stopName: filteredStops.find((filteredStop) => stopTimeUpdate.stopId.includes(filteredStop.stop_id)).stop_name,
 										arrivalTime: stopTimeUpdate.arrival.time,
 										departureTime: stopTimeUpdate.departure.time
 									}
-								))
-							}
+								)
+								filteredStopTimeUpdates.push(result)
+							}							
 						});
 					}
-				})
-			})
-
+				}
 			return filteredStopTimeUpdates
-		} catch (error) {
-				console.error("Failed to decode MTA data:", error);
 		}
+	} catch (err) {
+		throw new Error(err)
+	}
 }
+
 
 async function logger() {
 	const stopsInRange = await buildRadius(data.location.latitude, data.location.longitude)
 	const filteredStopTimeUpdates = await fetchTrainData(MTA_TRAIN_URLS, stopsInRange)
-	console.log(filteredStopTimeUpdates)
+	console.log(JSON.stringify(filteredStopTimeUpdates, null, 2))
 }
 
 logger()
