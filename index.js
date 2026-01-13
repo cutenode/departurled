@@ -4,6 +4,14 @@ const { readFileSync } = require('node:fs')
 const { resolve } = require('node:path');
 const root = require("./sources/proto_bundle.js");
 
+function getConfigData (configPath) {
+	const resolvedConfigPath = resolve(configPath)
+	const fileContents = readFileSync(resolvedConfigPath).toString()
+	return JSON.parse(fileContents)
+}
+
+const configData = getConfigData('./departurled.json')
+
 async function getStops () {
 	const data = await readFile('./sources/stops.txt', 'utf-8')
 	const stops = await csv.parse(data, { columns: true })
@@ -50,21 +58,13 @@ async function buildRadius (lat, lon) {
 			const distance = calculateRadius(locationLat, locationLon, stopLat, stopLon)
 
 			if (distance <= 1000) {
-				stopsInRange.push({ ...stop, distance: distance })
+				stopsInRange.push({ ...stop, distance: distance, minutesTo: distance / configData.walkingSpeed })
 			}
 		}
 	}
 
 	return stopsInRange
 }
-
-function getConfigData (configPath) {
-	const resolvedConfigPath = resolve(configPath)
-	const fileContents = readFileSync(resolvedConfigPath).toString()
-	return JSON.parse(fileContents)
-}
-
-const configData = getConfigData('./departurled.json')
 
 const MTA_TRAIN_URLS = [
 	'https://api-endpoint.mta.info/Dataservice/mtagtfsfeeds/nyct%2Fgtfs-ace',
@@ -76,14 +76,15 @@ const MTA_TRAIN_URLS = [
 	'https://api-endpoint.mta.info/Dataservice/mtagtfsfeeds/nyct%2Fgtfs-l'
 ]
 
-function stopTimeUpdateToDataBundle({ stopId, stopName, routeId, arrivalTime, departureTime }) {
+function stopTimeUpdateToDataBundle({ stopId, stopName, routeId, arrivalTime, departureTime, reachable }) {
 	return {
 		stopId: stopId,
 		stopName: stopName,
 		routeId: routeId,
 		arrivalTime: convertUnixTimestampToDate(arrivalTime),
 		departureTime: convertUnixTimestampToDate(departureTime),
-		direction: stopId[stopId.length - 1].includes('S') ? 'downtown' : 'uptown'
+		direction: stopId[stopId.length - 1].includes('S') ? 'downtown' : 'uptown',
+		reachable
 	}
 }
 
@@ -117,14 +118,18 @@ async function fetchTrainData(trainUrls, filteredStops) {
 						const routeId = message.entity[entity].tripUpdate.trip.routeId;
 
 						message.entity[entity].tripUpdate.stopTimeUpdate.forEach((stopTimeUpdate) => {
-							if (filteredStops.some((filteredStop) => stopTimeUpdate.stopId.includes(filteredStop.stop_id))) {
+							const stop = filteredStops.find((filteredStop) => stopTimeUpdate.stopId.includes(filteredStop.stop_id))
+							if (
+								filteredStops.some((filteredStop) => stopTimeUpdate.stopId.includes(filteredStop.stop_id))
+							) {
 								const result = stopTimeUpdateToDataBundle(
 									{
 										routeId: routeId,
 										stopId: stopTimeUpdate.stopId,
-										stopName: filteredStops.find((filteredStop) => stopTimeUpdate.stopId.includes(filteredStop.stop_id)).stop_name,
+										stopName: stop.stop_name,
 										arrivalTime: stopTimeUpdate.arrival.time,
-										departureTime: stopTimeUpdate.departure.time
+										departureTime: stopTimeUpdate.departure.time,
+										reachable: convertUnixTimestampToDate(stopTimeUpdate.arrival.time) >= new Date(new Date().getTime() + (configData.bufferMinutes + stop.minutesTo) * 60000)
 									}
 								)
 								filteredStopTimeUpdates.push(result)
