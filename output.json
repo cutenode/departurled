@@ -1,0 +1,845 @@
+{
+  "Jay St-MetroTech": {
+    "stopTimeUpdates": [
+      {
+        "stopId": "A41S",
+        "stopName": "Jay St-MetroTech",
+        "routeId": "A",
+        "arrivalTime": "2026-01-14T03:10:44.000Z",
+        "departureTime": "2026-01-14T03:10:44.000Z",
+        "direction": "downtown",
+        "reachable": false
+      },
+      {
+        "stopId": "A41S",
+        "stopName": "Jay St-MetroTech",
+        "routeId": "A",
+        "arrivalTime": "2026-01-14T03:23:35.000Z",
+        "departureTime": "2026-01-14T03:23:35.000Z",
+        "direction": "downtown",
+        "reachable": true
+      },
+      {
+        "stopId": "A41N",
+        "stopName": "Jay St-MetroTech",
+        "routeId": "A",
+        "arrivalTime": "2026-01-14T03:13:35.000Z",
+        "departureTime": "2026-01-14T03:13:35.000Z",
+        "direction": "uptown",
+        "reachable": false
+      },
+      {
+        "stopId": "A41N",
+        "stopName": "Jay St-MetroTech",
+        "routeId": "A",
+        "arrivalTime": "2026-01-14T03:12:05.000Z",
+        "departureTime": "2026-01-14T03:12:05.000Z",
+        "direction": "uptown",
+        "reachable": false
+      },
+      {
+        "stopId": "A41S",
+        "stopName": "Jay St-MetroTech",
+        "routeId": "A",
+        "arrivalTime": "2026-01-14T03:31:35.000Z",
+        "departureTime": "2026-01-14T03:31:35.000Z",
+        "direction": "downtown",
+        "reachable": true
+      },
+      {
+        "stopId": "A41N",
+        "stopName": "Jay St-MetroTech",
+        "routeId": "A",
+        "arrivalTime": "2026-01-14T03:33:35.000Z",
+        "departureTime": "2026-01-14T03:33:35.000Z",
+        "direction": "uptown",
+        "reachable": true
+      },
+      {
+        "stopId": "A41N",
+        "stopName": "Jay St-MetroTech",
+        "routeId": "A",
+        "arrivalTime": "2026-01-14T03:21:05.000Z",
+        "departureTime": "2026-01-14T03:21:05.000Z",
+        "direction": "uptown",
+        "reachable": true
+      },
+      {
+        "stopId": "A41S",
+        "stopName": "Jay St-MetroTech",
+        "routeId": "A",
+        "arrivalTime": "2026-01-14T03:48:35.000Z",
+        "departureTime": "2026-01-14T03:48:35.000Z",
+        "direction": "downtown",
+        "reachable": true
+      },
+      {
+        "stopId": "A41S",
+        "stopName": "Jay St-MetroTech",
+        "routeId": "A",
+        "arrivalTime": "2026-01-14T04:01:24.000Z",
+        "departureTime": "2026-01-14T04:01:24.000Z",
+        "direction": "downtown",
+        "reachable": true
+      },
+      {
+        "stopId": "A41N",
+        "stopName": "Jay St-MetroTech",
+        "routeId": "A",
+        "arrivalTime": "2026-01-14T04:05:30.000Z",
+        "departureTime": "2026-01-14T04:05:30.000Z",
+        "direction": "uptown",
+        "reachable": true
+      },
+      {
+        "stopId": "A41N",
+        "stopName": "Jay St-MetroTech",
+        "routeId": "A",
+        "arrivalTime": "2026-01-14T03:45:30.000Z",
+        "departureTime": "2026-01-14T03:45:30.000Z",
+        "direction": "uptown",
+        "reachable": true
+      },
+      {
+        "stopId": "A41S",
+        "stopName": "Jay St-MetroTech",
+        "routeId": "A",
+        "arrivalTime": "2026-01-14T04:09:00.000Z",
+        "departureTime": "2026-01-14T04:09:00.000Z",
+        "direction": "downtown",
+        "reachable": true
+      },
+      {
+        "stopId": "A41N",
+        "stopName": "Jay St-MetroTech",
+        "routeId": "A",
+        "arrivalTime": "2026-01-14T03:55:00.000Z",
+        "departureTime": "2026-01-14T03:55:00.000Z",
+        "direction": "uptown",
+        "reachable": true
+      },
+      {
+        "stopId": "A41S",
+        "stopName": "Jay St-MetroTech",
+        "routeId": "A",
+        "arrivalTime": "2026-01-14T04:20:30.000Z",
+        "departureTime": "2026-01-14T04:20:30.000Z",
+        "direction": "downtown",
+        "reachable": true
+      },
+      {
+        "stopId": "A41S",
+        "stopName": "Jay St-MetroTech",
+        "routeId": "A",
+        "arrivalTime": "2026-01-14T04:27:00.000Z",
+        "departureTime": "2026-01-14T04:27:00.000Z",
+        "direction": "downtown",
+        "reachable": true
+      },
+      {
+        "stopId": "A41N",
+        "stopName": "Jay St-MetroTech",
+        "routeId": "A",
+        "arrivalTime": "2026-01-14T04:32:00.000Z",
+        "departureTime": "2026-01-14T04:32:00.000Z",
+        "direction": "uptown",
+        "reachable": true
+      },
+      {
+        "stopId": "A41S",
+        "stopName": "Jay St-MetroTech",
+        "routeId": "A",
+        "arrivalTime": "2026-01-14T04:35:00.000Z",
+        "departureTime": "2026-01-14T04:35:00.000Z",
+        "direction": "downtown",
+        "reachable": true
+      },
+      {
+        "stopId": "A41N",
+        "stopName": "Jay St-MetroTech",
+        "routeId": "A",
+        "arrivalTime": "2026-01-14T04:36:00.000Z",
+        "departureTime": "2026-01-14T04:36:00.000Z",
+        "direction": "uptown",
+        "reachable": true
+      },
+      {
+        "stopId": "A41S",
+        "stopName": "Jay St-MetroTech",
+        "routeId": "A",
+        "arrivalTime": "2026-01-14T04:46:00.000Z",
+        "departureTime": "2026-01-14T04:46:00.000Z",
+        "direction": "downtown",
+        "reachable": true
+      },
+      {
+        "stopId": "A41N",
+        "stopName": "Jay St-MetroTech",
+        "routeId": "A",
+        "arrivalTime": "2026-01-14T04:55:30.000Z",
+        "departureTime": "2026-01-14T04:55:30.000Z",
+        "direction": "uptown",
+        "reachable": true
+      },
+      {
+        "stopId": "A41S",
+        "stopName": "Jay St-MetroTech",
+        "routeId": "A",
+        "arrivalTime": "2026-01-14T04:56:00.000Z",
+        "departureTime": "2026-01-14T04:56:00.000Z",
+        "direction": "downtown",
+        "reachable": true
+      },
+      {
+        "stopId": "A41S",
+        "stopName": "Jay St-MetroTech",
+        "routeId": "C",
+        "arrivalTime": "2026-01-14T03:20:02.000Z",
+        "departureTime": "2026-01-14T03:20:02.000Z",
+        "direction": "downtown",
+        "reachable": true
+      },
+      {
+        "stopId": "A41S",
+        "stopName": "Jay St-MetroTech",
+        "routeId": "C",
+        "arrivalTime": "2026-01-14T03:23:05.000Z",
+        "departureTime": "2026-01-14T03:23:05.000Z",
+        "direction": "downtown",
+        "reachable": true
+      },
+      {
+        "stopId": "A41S",
+        "stopName": "Jay St-MetroTech",
+        "routeId": "C",
+        "arrivalTime": "2026-01-14T03:25:05.000Z",
+        "departureTime": "2026-01-14T03:25:05.000Z",
+        "direction": "downtown",
+        "reachable": true
+      },
+      {
+        "stopId": "A41N",
+        "stopName": "Jay St-MetroTech",
+        "routeId": "C",
+        "arrivalTime": "2026-01-14T03:13:35.000Z",
+        "departureTime": "2026-01-14T03:13:35.000Z",
+        "direction": "uptown",
+        "reachable": false
+      },
+      {
+        "stopId": "A41S",
+        "stopName": "Jay St-MetroTech",
+        "routeId": "C",
+        "arrivalTime": "2026-01-14T03:31:52.000Z",
+        "departureTime": "2026-01-14T03:31:52.000Z",
+        "direction": "downtown",
+        "reachable": true
+      },
+      {
+        "stopId": "A41N",
+        "stopName": "Jay St-MetroTech",
+        "routeId": "C",
+        "arrivalTime": "2026-01-14T03:19:05.000Z",
+        "departureTime": "2026-01-14T03:19:05.000Z",
+        "direction": "uptown",
+        "reachable": true
+      },
+      {
+        "stopId": "A41S",
+        "stopName": "Jay St-MetroTech",
+        "routeId": "C",
+        "arrivalTime": "2026-01-14T03:41:05.000Z",
+        "departureTime": "2026-01-14T03:41:05.000Z",
+        "direction": "downtown",
+        "reachable": true
+      },
+      {
+        "stopId": "A41N",
+        "stopName": "Jay St-MetroTech",
+        "routeId": "C",
+        "arrivalTime": "2026-01-14T03:28:35.000Z",
+        "departureTime": "2026-01-14T03:28:35.000Z",
+        "direction": "uptown",
+        "reachable": true
+      },
+      {
+        "stopId": "A41N",
+        "stopName": "Jay St-MetroTech",
+        "routeId": "C",
+        "arrivalTime": "2026-01-14T03:43:30.000Z",
+        "departureTime": "2026-01-14T03:43:30.000Z",
+        "direction": "uptown",
+        "reachable": true
+      },
+      {
+        "stopId": "A41S",
+        "stopName": "Jay St-MetroTech",
+        "routeId": "C",
+        "arrivalTime": "2026-01-14T03:52:35.000Z",
+        "departureTime": "2026-01-14T03:52:35.000Z",
+        "direction": "downtown",
+        "reachable": true
+      }
+    ],
+    "minutesTo": 2.424315524405714
+  },
+  "Hoyt-Schermerhorn Sts": {
+    "stopTimeUpdates": [
+      {
+        "stopId": "A42S",
+        "stopName": "Hoyt-Schermerhorn Sts",
+        "routeId": "A",
+        "arrivalTime": "2026-01-14T03:12:05.000Z",
+        "departureTime": "2026-01-14T03:12:05.000Z",
+        "direction": "downtown",
+        "reachable": false
+      },
+      {
+        "stopId": "A42S",
+        "stopName": "Hoyt-Schermerhorn Sts",
+        "routeId": "A",
+        "arrivalTime": "2026-01-14T03:25:05.000Z",
+        "departureTime": "2026-01-14T03:25:05.000Z",
+        "direction": "downtown",
+        "reachable": true
+      },
+      {
+        "stopId": "A42N",
+        "stopName": "Hoyt-Schermerhorn Sts",
+        "routeId": "A",
+        "arrivalTime": "2026-01-14T03:12:05.000Z",
+        "departureTime": "2026-01-14T03:12:05.000Z",
+        "direction": "uptown",
+        "reachable": false
+      },
+      {
+        "stopId": "A42N",
+        "stopName": "Hoyt-Schermerhorn Sts",
+        "routeId": "A",
+        "arrivalTime": "2026-01-14T03:11:00.000Z",
+        "departureTime": "2026-01-14T03:11:00.000Z",
+        "direction": "uptown",
+        "reachable": false
+      },
+      {
+        "stopId": "A42S",
+        "stopName": "Hoyt-Schermerhorn Sts",
+        "routeId": "A",
+        "arrivalTime": "2026-01-14T03:33:05.000Z",
+        "departureTime": "2026-01-14T03:33:05.000Z",
+        "direction": "downtown",
+        "reachable": true
+      },
+      {
+        "stopId": "A42N",
+        "stopName": "Hoyt-Schermerhorn Sts",
+        "routeId": "A",
+        "arrivalTime": "2026-01-14T03:32:05.000Z",
+        "departureTime": "2026-01-14T03:32:05.000Z",
+        "direction": "uptown",
+        "reachable": true
+      },
+      {
+        "stopId": "A42N",
+        "stopName": "Hoyt-Schermerhorn Sts",
+        "routeId": "A",
+        "arrivalTime": "2026-01-14T03:19:35.000Z",
+        "departureTime": "2026-01-14T03:19:35.000Z",
+        "direction": "uptown",
+        "reachable": true
+      },
+      {
+        "stopId": "A42S",
+        "stopName": "Hoyt-Schermerhorn Sts",
+        "routeId": "A",
+        "arrivalTime": "2026-01-14T03:50:05.000Z",
+        "departureTime": "2026-01-14T03:50:05.000Z",
+        "direction": "downtown",
+        "reachable": true
+      },
+      {
+        "stopId": "A42S",
+        "stopName": "Hoyt-Schermerhorn Sts",
+        "routeId": "A",
+        "arrivalTime": "2026-01-14T04:02:54.000Z",
+        "departureTime": "2026-01-14T04:02:54.000Z",
+        "direction": "downtown",
+        "reachable": true
+      },
+      {
+        "stopId": "A42N",
+        "stopName": "Hoyt-Schermerhorn Sts",
+        "routeId": "A",
+        "arrivalTime": "2026-01-14T04:04:00.000Z",
+        "departureTime": "2026-01-14T04:04:00.000Z",
+        "direction": "uptown",
+        "reachable": true
+      },
+      {
+        "stopId": "A42N",
+        "stopName": "Hoyt-Schermerhorn Sts",
+        "routeId": "A",
+        "arrivalTime": "2026-01-14T03:44:00.000Z",
+        "departureTime": "2026-01-14T03:44:00.000Z",
+        "direction": "uptown",
+        "reachable": true
+      },
+      {
+        "stopId": "A42S",
+        "stopName": "Hoyt-Schermerhorn Sts",
+        "routeId": "A",
+        "arrivalTime": "2026-01-14T04:10:30.000Z",
+        "departureTime": "2026-01-14T04:10:30.000Z",
+        "direction": "downtown",
+        "reachable": true
+      },
+      {
+        "stopId": "A42N",
+        "stopName": "Hoyt-Schermerhorn Sts",
+        "routeId": "A",
+        "arrivalTime": "2026-01-14T03:53:30.000Z",
+        "departureTime": "2026-01-14T03:53:30.000Z",
+        "direction": "uptown",
+        "reachable": true
+      },
+      {
+        "stopId": "A42S",
+        "stopName": "Hoyt-Schermerhorn Sts",
+        "routeId": "A",
+        "arrivalTime": "2026-01-14T04:22:00.000Z",
+        "departureTime": "2026-01-14T04:22:00.000Z",
+        "direction": "downtown",
+        "reachable": true
+      },
+      {
+        "stopId": "A42S",
+        "stopName": "Hoyt-Schermerhorn Sts",
+        "routeId": "A",
+        "arrivalTime": "2026-01-14T04:28:30.000Z",
+        "departureTime": "2026-01-14T04:28:30.000Z",
+        "direction": "downtown",
+        "reachable": true
+      },
+      {
+        "stopId": "A42N",
+        "stopName": "Hoyt-Schermerhorn Sts",
+        "routeId": "A",
+        "arrivalTime": "2026-01-14T04:30:30.000Z",
+        "departureTime": "2026-01-14T04:30:30.000Z",
+        "direction": "uptown",
+        "reachable": true
+      },
+      {
+        "stopId": "A42S",
+        "stopName": "Hoyt-Schermerhorn Sts",
+        "routeId": "A",
+        "arrivalTime": "2026-01-14T04:36:30.000Z",
+        "departureTime": "2026-01-14T04:36:30.000Z",
+        "direction": "downtown",
+        "reachable": true
+      },
+      {
+        "stopId": "A42N",
+        "stopName": "Hoyt-Schermerhorn Sts",
+        "routeId": "A",
+        "arrivalTime": "2026-01-14T04:34:30.000Z",
+        "departureTime": "2026-01-14T04:34:30.000Z",
+        "direction": "uptown",
+        "reachable": true
+      },
+      {
+        "stopId": "A42S",
+        "stopName": "Hoyt-Schermerhorn Sts",
+        "routeId": "A",
+        "arrivalTime": "2026-01-14T04:47:30.000Z",
+        "departureTime": "2026-01-14T04:47:30.000Z",
+        "direction": "downtown",
+        "reachable": true
+      },
+      {
+        "stopId": "A42N",
+        "stopName": "Hoyt-Schermerhorn Sts",
+        "routeId": "A",
+        "arrivalTime": "2026-01-14T04:54:00.000Z",
+        "departureTime": "2026-01-14T04:54:00.000Z",
+        "direction": "uptown",
+        "reachable": true
+      },
+      {
+        "stopId": "A42S",
+        "stopName": "Hoyt-Schermerhorn Sts",
+        "routeId": "A",
+        "arrivalTime": "2026-01-14T04:57:30.000Z",
+        "departureTime": "2026-01-14T04:57:30.000Z",
+        "direction": "downtown",
+        "reachable": true
+      },
+      {
+        "stopId": "A42S",
+        "stopName": "Hoyt-Schermerhorn Sts",
+        "routeId": "C",
+        "arrivalTime": "2026-01-14T03:21:32.000Z",
+        "departureTime": "2026-01-14T03:21:32.000Z",
+        "direction": "downtown",
+        "reachable": true
+      },
+      {
+        "stopId": "A42S",
+        "stopName": "Hoyt-Schermerhorn Sts",
+        "routeId": "C",
+        "arrivalTime": "2026-01-14T03:24:35.000Z",
+        "departureTime": "2026-01-14T03:24:35.000Z",
+        "direction": "downtown",
+        "reachable": true
+      },
+      {
+        "stopId": "A42S",
+        "stopName": "Hoyt-Schermerhorn Sts",
+        "routeId": "C",
+        "arrivalTime": "2026-01-14T03:26:35.000Z",
+        "departureTime": "2026-01-14T03:26:35.000Z",
+        "direction": "downtown",
+        "reachable": true
+      },
+      {
+        "stopId": "A42N",
+        "stopName": "Hoyt-Schermerhorn Sts",
+        "routeId": "C",
+        "arrivalTime": "2026-01-14T03:12:05.000Z",
+        "departureTime": "2026-01-14T03:12:05.000Z",
+        "direction": "uptown",
+        "reachable": false
+      },
+      {
+        "stopId": "A42S",
+        "stopName": "Hoyt-Schermerhorn Sts",
+        "routeId": "C",
+        "arrivalTime": "2026-01-14T03:33:22.000Z",
+        "departureTime": "2026-01-14T03:33:22.000Z",
+        "direction": "downtown",
+        "reachable": true
+      },
+      {
+        "stopId": "A42N",
+        "stopName": "Hoyt-Schermerhorn Sts",
+        "routeId": "C",
+        "arrivalTime": "2026-01-14T03:17:35.000Z",
+        "departureTime": "2026-01-14T03:17:35.000Z",
+        "direction": "uptown",
+        "reachable": true
+      },
+      {
+        "stopId": "A42S",
+        "stopName": "Hoyt-Schermerhorn Sts",
+        "routeId": "C",
+        "arrivalTime": "2026-01-14T03:42:35.000Z",
+        "departureTime": "2026-01-14T03:42:35.000Z",
+        "direction": "downtown",
+        "reachable": true
+      },
+      {
+        "stopId": "A42N",
+        "stopName": "Hoyt-Schermerhorn Sts",
+        "routeId": "C",
+        "arrivalTime": "2026-01-14T03:27:05.000Z",
+        "departureTime": "2026-01-14T03:27:05.000Z",
+        "direction": "uptown",
+        "reachable": true
+      },
+      {
+        "stopId": "A42N",
+        "stopName": "Hoyt-Schermerhorn Sts",
+        "routeId": "C",
+        "arrivalTime": "2026-01-14T03:42:00.000Z",
+        "departureTime": "2026-01-14T03:42:00.000Z",
+        "direction": "uptown",
+        "reachable": true
+      },
+      {
+        "stopId": "A42S",
+        "stopName": "Hoyt-Schermerhorn Sts",
+        "routeId": "C",
+        "arrivalTime": "2026-01-14T03:54:05.000Z",
+        "departureTime": "2026-01-14T03:54:05.000Z",
+        "direction": "downtown",
+        "reachable": true
+      }
+    ],
+    "minutesTo": 4.04405321972647
+  },
+  "High St": {
+    "stopTimeUpdates": [
+      {
+        "stopId": "A40S",
+        "stopName": "High St",
+        "routeId": "A",
+        "arrivalTime": "2026-01-14T03:21:05.000Z",
+        "departureTime": "2026-01-14T03:21:05.000Z",
+        "direction": "downtown",
+        "reachable": false
+      },
+      {
+        "stopId": "A40N",
+        "stopName": "High St",
+        "routeId": "A",
+        "arrivalTime": "2026-01-14T03:15:35.000Z",
+        "departureTime": "2026-01-14T03:15:35.000Z",
+        "direction": "uptown",
+        "reachable": false
+      },
+      {
+        "stopId": "A40N",
+        "stopName": "High St",
+        "routeId": "A",
+        "arrivalTime": "2026-01-14T03:14:05.000Z",
+        "departureTime": "2026-01-14T03:14:05.000Z",
+        "direction": "uptown",
+        "reachable": false
+      },
+      {
+        "stopId": "A40S",
+        "stopName": "High St",
+        "routeId": "A",
+        "arrivalTime": "2026-01-14T03:29:05.000Z",
+        "departureTime": "2026-01-14T03:29:05.000Z",
+        "direction": "downtown",
+        "reachable": true
+      },
+      {
+        "stopId": "A40N",
+        "stopName": "High St",
+        "routeId": "A",
+        "arrivalTime": "2026-01-14T03:35:35.000Z",
+        "departureTime": "2026-01-14T03:35:35.000Z",
+        "direction": "uptown",
+        "reachable": true
+      },
+      {
+        "stopId": "A40N",
+        "stopName": "High St",
+        "routeId": "A",
+        "arrivalTime": "2026-01-14T03:23:05.000Z",
+        "departureTime": "2026-01-14T03:23:05.000Z",
+        "direction": "uptown",
+        "reachable": false
+      },
+      {
+        "stopId": "A40S",
+        "stopName": "High St",
+        "routeId": "A",
+        "arrivalTime": "2026-01-14T03:46:05.000Z",
+        "departureTime": "2026-01-14T03:46:05.000Z",
+        "direction": "downtown",
+        "reachable": true
+      },
+      {
+        "stopId": "A40S",
+        "stopName": "High St",
+        "routeId": "A",
+        "arrivalTime": "2026-01-14T03:58:54.000Z",
+        "departureTime": "2026-01-14T03:58:54.000Z",
+        "direction": "downtown",
+        "reachable": true
+      },
+      {
+        "stopId": "A40N",
+        "stopName": "High St",
+        "routeId": "A",
+        "arrivalTime": "2026-01-14T04:07:30.000Z",
+        "departureTime": "2026-01-14T04:07:30.000Z",
+        "direction": "uptown",
+        "reachable": true
+      },
+      {
+        "stopId": "A40N",
+        "stopName": "High St",
+        "routeId": "A",
+        "arrivalTime": "2026-01-14T03:47:30.000Z",
+        "departureTime": "2026-01-14T03:47:30.000Z",
+        "direction": "uptown",
+        "reachable": true
+      },
+      {
+        "stopId": "A40S",
+        "stopName": "High St",
+        "routeId": "A",
+        "arrivalTime": "2026-01-14T04:06:30.000Z",
+        "departureTime": "2026-01-14T04:06:30.000Z",
+        "direction": "downtown",
+        "reachable": true
+      },
+      {
+        "stopId": "A40N",
+        "stopName": "High St",
+        "routeId": "A",
+        "arrivalTime": "2026-01-14T03:57:00.000Z",
+        "departureTime": "2026-01-14T03:57:00.000Z",
+        "direction": "uptown",
+        "reachable": true
+      },
+      {
+        "stopId": "A40S",
+        "stopName": "High St",
+        "routeId": "A",
+        "arrivalTime": "2026-01-14T04:18:00.000Z",
+        "departureTime": "2026-01-14T04:18:00.000Z",
+        "direction": "downtown",
+        "reachable": true
+      },
+      {
+        "stopId": "A40S",
+        "stopName": "High St",
+        "routeId": "A",
+        "arrivalTime": "2026-01-14T04:24:30.000Z",
+        "departureTime": "2026-01-14T04:24:30.000Z",
+        "direction": "downtown",
+        "reachable": true
+      },
+      {
+        "stopId": "A40N",
+        "stopName": "High St",
+        "routeId": "A",
+        "arrivalTime": "2026-01-14T04:34:00.000Z",
+        "departureTime": "2026-01-14T04:34:00.000Z",
+        "direction": "uptown",
+        "reachable": true
+      },
+      {
+        "stopId": "A40S",
+        "stopName": "High St",
+        "routeId": "A",
+        "arrivalTime": "2026-01-14T04:32:30.000Z",
+        "departureTime": "2026-01-14T04:32:30.000Z",
+        "direction": "downtown",
+        "reachable": true
+      },
+      {
+        "stopId": "A40N",
+        "stopName": "High St",
+        "routeId": "A",
+        "arrivalTime": "2026-01-14T04:38:00.000Z",
+        "departureTime": "2026-01-14T04:38:00.000Z",
+        "direction": "uptown",
+        "reachable": true
+      },
+      {
+        "stopId": "A40S",
+        "stopName": "High St",
+        "routeId": "A",
+        "arrivalTime": "2026-01-14T04:43:30.000Z",
+        "departureTime": "2026-01-14T04:43:30.000Z",
+        "direction": "downtown",
+        "reachable": true
+      },
+      {
+        "stopId": "A40N",
+        "stopName": "High St",
+        "routeId": "A",
+        "arrivalTime": "2026-01-14T04:57:30.000Z",
+        "departureTime": "2026-01-14T04:57:30.000Z",
+        "direction": "uptown",
+        "reachable": true
+      },
+      {
+        "stopId": "A40S",
+        "stopName": "High St",
+        "routeId": "A",
+        "arrivalTime": "2026-01-14T04:53:30.000Z",
+        "departureTime": "2026-01-14T04:53:30.000Z",
+        "direction": "downtown",
+        "reachable": true
+      },
+      {
+        "stopId": "A40S",
+        "stopName": "High St",
+        "routeId": "C",
+        "arrivalTime": "2026-01-14T03:17:32.000Z",
+        "departureTime": "2026-01-14T03:17:32.000Z",
+        "direction": "downtown",
+        "reachable": false
+      },
+      {
+        "stopId": "A40S",
+        "stopName": "High St",
+        "routeId": "C",
+        "arrivalTime": "2026-01-14T03:20:35.000Z",
+        "departureTime": "2026-01-14T03:20:35.000Z",
+        "direction": "downtown",
+        "reachable": false
+      },
+      {
+        "stopId": "A40S",
+        "stopName": "High St",
+        "routeId": "C",
+        "arrivalTime": "2026-01-14T03:22:35.000Z",
+        "departureTime": "2026-01-14T03:22:35.000Z",
+        "direction": "downtown",
+        "reachable": false
+      },
+      {
+        "stopId": "A40N",
+        "stopName": "High St",
+        "routeId": "C",
+        "arrivalTime": "2026-01-14T03:15:35.000Z",
+        "departureTime": "2026-01-14T03:15:35.000Z",
+        "direction": "uptown",
+        "reachable": false
+      },
+      {
+        "stopId": "A40S",
+        "stopName": "High St",
+        "routeId": "C",
+        "arrivalTime": "2026-01-14T03:29:22.000Z",
+        "departureTime": "2026-01-14T03:29:22.000Z",
+        "direction": "downtown",
+        "reachable": true
+      },
+      {
+        "stopId": "A40N",
+        "stopName": "High St",
+        "routeId": "C",
+        "arrivalTime": "2026-01-14T03:21:05.000Z",
+        "departureTime": "2026-01-14T03:21:05.000Z",
+        "direction": "uptown",
+        "reachable": false
+      },
+      {
+        "stopId": "A40S",
+        "stopName": "High St",
+        "routeId": "C",
+        "arrivalTime": "2026-01-14T03:38:35.000Z",
+        "departureTime": "2026-01-14T03:38:35.000Z",
+        "direction": "downtown",
+        "reachable": true
+      },
+      {
+        "stopId": "A40N",
+        "stopName": "High St",
+        "routeId": "C",
+        "arrivalTime": "2026-01-14T03:30:35.000Z",
+        "departureTime": "2026-01-14T03:30:35.000Z",
+        "direction": "uptown",
+        "reachable": true
+      },
+      {
+        "stopId": "A40N",
+        "stopName": "High St",
+        "routeId": "C",
+        "arrivalTime": "2026-01-14T03:45:30.000Z",
+        "departureTime": "2026-01-14T03:45:30.000Z",
+        "direction": "uptown",
+        "reachable": true
+      },
+      {
+        "stopId": "A40S",
+        "stopName": "High St",
+        "routeId": "C",
+        "arrivalTime": "2026-01-14T03:50:05.000Z",
+        "departureTime": "2026-01-14T03:50:05.000Z",
+        "direction": "downtown",
+        "reachable": true
+      }
+    ],
+    "minutesTo": 12.223917191309814
+  }
+}

@@ -1,5 +1,5 @@
 function calculateRadius(lat1, lon1, lat2, lon2) {
-	const R = 6371e3; // metres
+	const radius = 6371e3; // metres
 	const φ1 = lat1 * Math.PI/180; // φ, λ in radians
 	const φ2 = lat2 * Math.PI/180;
 	const Δφ = (lat2-lat1) * Math.PI/180;
@@ -10,8 +10,8 @@ function calculateRadius(lat1, lon1, lat2, lon2) {
 						Math.sin(Δλ/2) * Math.sin(Δλ/2);
 	const c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1-a));
 
-	const d = R * c; // in metres
-	return d
+	const distance = radius * c; // in metres
+	return distance
 }
 
 module.exports = calculateRadius

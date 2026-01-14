@@ -1,34 +1,11 @@
-const buildRadius = require('./src/buildRadius.js')
+const buildRadius = require('./src/buildRadius')
 const getConfigData = require('./src/getConfigData')
-const protoBundle = require('./src/proto_bundle.js')
+const urls = require('./src/urls.js')
+const prettifyUpdate = require('./src/prettifyUpdate')
+const convertUnixTimestampToDate = require('./src/convertUnixTimestampToDate')
+const protoBundle = require('./src/proto_bundle')
 
 const configData = getConfigData('./departurled.json')
-
-const MTA_TRAIN_URLS = [
-	'https://api-endpoint.mta.info/Dataservice/mtagtfsfeeds/nyct%2Fgtfs-ace',
-	'https://api-endpoint.mta.info/Dataservice/mtagtfsfeeds/nyct%2Fgtfs-g',
-	'https://api-endpoint.mta.info/Dataservice/mtagtfsfeeds/nyct%2Fgtfs-nqrw',
-	'https://api-endpoint.mta.info/Dataservice/mtagtfsfeeds/nyct%2Fgtfs',
-	'https://api-endpoint.mta.info/Dataservice/mtagtfsfeeds/nyct%2Fgtfs-bdfm',
-	'https://api-endpoint.mta.info/Dataservice/mtagtfsfeeds/nyct%2Fgtfs-jz',
-	'https://api-endpoint.mta.info/Dataservice/mtagtfsfeeds/nyct%2Fgtfs-l'
-]
-
-function stopTimeUpdateToDataBundle({ stopId, stopName, routeId, arrivalTime, departureTime, reachable }) {
-	return {
-		stopId: stopId,
-		stopName: stopName,
-		routeId: routeId,
-		arrivalTime: convertUnixTimestampToDate(arrivalTime),
-		departureTime: convertUnixTimestampToDate(departureTime),
-		direction: stopId[stopId.length - 1].includes('S') ? 'downtown' : 'uptown',
-		reachable
-	}
-}
-
-function convertUnixTimestampToDate(unix_timestamp) {
-	return new Date(Number(unix_timestamp) * 1000);
-}
 
 async function fetchTrainData(trainUrls, filteredStops) {
 		try {
@@ -48,22 +25,25 @@ async function fetchTrainData(trainUrls, filteredStops) {
 
 			  for (const entity in message) {
 					if (message[entity].tripUpdate) {
-						const tripId = message[entity].tripUpdate.trip.tripId;
-						const routeId = message[entity].tripUpdate.trip.routeId;
+						const tripId = message[entity].tripUpdate.trip.tripId
+						const routeId = message[entity].tripUpdate.trip.routeId
+						const updates = message[entity].tripUpdate.stopTimeUpdate
 
-						message[entity].tripUpdate.stopTimeUpdate.forEach((stopTimeUpdate) => {
-							const stop = filteredStops.find((filteredStop) => stopTimeUpdate.stopId.includes(filteredStop.stop_id))
-							if (filteredStops.some((filteredStop) => stopTimeUpdate.stopId.includes(filteredStop.stop_id))) {
+						updates.forEach((update) => {
+							const stop = filteredStops.find((filteredStop) => update.stopId.includes(filteredStop.stop_id))
+
+							if (filteredStops.some((filteredStop) => update.stopId.includes(filteredStop.stop_id))) {
 								const input = {
 										routeId: routeId,
-										stopId: stopTimeUpdate.stopId,
+										stopId: update.stopId,
 										stopName: stop.stop_name,
-										arrivalTime: stopTimeUpdate.arrival.time,
-										departureTime: stopTimeUpdate.departure.time,
-										reachable: convertUnixTimestampToDate(stopTimeUpdate.arrival.time) >= new Date(new Date().getTime() + (configData.bufferMinutes + stop.minutesTo) * 60000)
+										arrivalTime: update.arrival.time,
+										departureTime: update.departure.time,
+										reachable: convertUnixTimestampToDate(update.arrival.time) >= new Date(new Date().getTime() + (configData.bufferMinutes + stop.minutesTo) * 60000)
 									}
 								
-								const output = stopTimeUpdateToDataBundle(input)
+								const output = prettifyUpdate(input)
+
 								filteredStopTimeUpdates.push(output)
 							}							
 						});
@@ -79,12 +59,13 @@ async function fetchTrainData(trainUrls, filteredStops) {
 
 async function logger() {
 	const stopsInRange = await buildRadius(configData)
-	const filteredStopTimeUpdates = await fetchTrainData(MTA_TRAIN_URLS, stopsInRange)
+	const filteredStopTimeUpdates = await fetchTrainData(urls, stopsInRange)
 	const stopTimeUpdatesGroupedByStation = Object.groupBy(filteredStopTimeUpdates, (stopTimeUpdate) => {
 		return stopTimeUpdate.stopName
 	})
 
 	// Add distance to grouped station
+	// this is only in the temporary logger output, we should hoist it up to the actual output
 	Object.keys(stopTimeUpdatesGroupedByStation).forEach(function(stationName, index) {
 		stopTimeUpdatesGroupedByStation[stationName] = {
 			stopTimeUpdates: stopTimeUpdatesGroupedByStation[stationName],
@@ -94,7 +75,7 @@ async function logger() {
 
 	// Current time + buffer + minutesTo
 
-	console.log(JSON.stringify(stopTimeUpdatesGroupedByStation))
+	console.log(JSON.stringify(stopTimeUpdatesGroupedByStation, null, 2))
 }
 
 logger()
